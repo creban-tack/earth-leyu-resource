@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 · 稳妥的浏览起点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fdeacb 0%, #f7d9b0 45%, #f0cf9c 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2f2b26;
+        }
+
+        .wrap {
+            max-width: 960px;
+            width: 100%;
+            background: rgba(255, 251, 242, 0.88);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 18px 40px -12px rgba(170, 120, 60, 0.28), 0 6px 18px rgba(0,0,0,0.03);
+            padding: 2.6rem 2.2rem;
+            transition: all 0.2s;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem; }
+            .wrap { padding: 2rem 1.2rem; border-radius: 32px 16px 32px 16px; }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 480;
+            letter-spacing: -0.01em;
+            color: #4d3822;
+            margin-bottom: 0.4rem;
+            border-left: 8px solid #c29a6b;
+            padding-left: 1.6rem;
+            line-height: 1.2;
+        }
+        .subhead {
+            color: #6f5540;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            padding-left: 2.4rem;
+            font-weight: 380;
+            border-bottom: 1px dashed #dbbd9c;
+            padding-bottom: 0.8rem;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+
+        .card {
+            background: #fffcf7;
+            border-radius: 28px 12px 28px 12px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 6px 16px rgba(140, 100, 60, 0.06);
+            flex: 1 1 220px;
+            border: 1px solid #f3e2cf;
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(160, 110, 50, 0.10);
+        }
+
+        .card h2 {
+            font-weight: 440;
+            font-size: 1.5rem;
+            color: #65462b;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            color: #3b342c;
+            margin-bottom: 0.6rem;
+        }
+
+        .card ul {
+            padding-left: 1.4rem;
+            margin: 0.6rem 0 0.2rem;
+            color: #3f372e;
+        }
+
+        .card li {
+            margin-bottom: 0.45rem;
+            font-size: 0.96rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dbb896;
+            color: #2c241b;
+            border-radius: 40px;
+            padding: 0.22rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            margin-right: 0.5rem;
+        }
+
+        .accent-link {
+            display: inline-block;
+            background: #c29a6b;
+            color: #24201a;
+            padding: 0.3rem 1.4rem;
+            border-radius: 60px;
+            font-weight: 490;
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid #e7c7a6;
+            box-shadow: 0 3px 6px rgba(150, 100, 45, 0.08);
+            transition: background 0.2s, box-shadow 0.1s;
+        }
+
+        .accent-link:hover {
+            background: #dbb185;
+            box-shadow: 0 6px 12px rgba(170, 115, 45, 0.12);
+        }
+
+        .faq-line {
+            background: #f7ede1;
+            border-radius: 60px;
+            padding: 0.9rem 1.8rem;
+            margin-top: 1.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.6rem 1.2rem;
+            font-size: 0.96rem;
+            border: 1px solid #ecdac6;
+        }
+
+        .faq-line span:first-child {
+            font-weight: 490;
+            color: #4f3822;
+        }
+
+        .footnote {
+            margin-top: 2rem;
+            border-top: 1px solid #e2cfb6;
+            padding-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.86rem;
+            color: #594b3b;
+        }
+
+        .footnote a {
+            color: #745a3f;
+            text-decoration: underline 1px wavy #c6a683;
+            text-underline-offset: 4px;
+        }
+
+        .pill-list {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 0.6rem;
+            margin-top: 0.3rem;
+        }
+        .pill {
+            background: #eadac8;
+            padding: 0.1rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #3b2d1e;
+        }
+
+        .small-note {
+            font-size: 0.9rem;
+            color: #5d4c39;
+            margin: 0.2rem 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eddcc9;
+            margin: 1.4rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>雷速</h1>
+    <div class="subhead">一份平实、稳定的浏览起点 · 页面说明 · 日常使用</div>
+
+    <div class="card-grid">
+        <!-- 摘要卡片 -->
+        <div class="card-row">
+            <div class="card">
+                <h2><span class="badge">摘要</span> 它是什么</h2>
+                <p><strong>雷速</strong> 是一个立足于信息浏览与页面导航的轻量级服务入口。设计上追求直接、低干扰，让每次打开都像翻开一本熟悉的笔记本——不需要反复适应布局，也没有多余的跳转迷惑。对于日常查找页面、快速抵达目标场景，它是一个稳定且省心的选择。</p>
+                <p class="small-note">你可以把它理解为一个始终如一的起点，而不是功能繁杂的平台。</p>
+            </div>
+            <div class="card">
+                <h2><span class="badge">亮点</span> 几个细节</h2>
+                <ul>
+                    <li><strong>加载节奏友好</strong> —— 页面结构清晰，几乎没有冗余请求，适合在各种网络环境下使用。</li>
+                    <li><strong>入口一致性</strong> —— 链接指向明确，不会因为版本迭代而频繁更换路径，减少了记忆负担。</li>
+                    <li><strong>低视觉疲劳</strong> —— 温和的色调、克制的字体和留白，更适合长时间使用。</li>
+                    <li><strong>无强制推送</strong> —— 不在浏览过程中插入弹窗或强引导，把选择权交给你。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 使用建议 + 场景 -->
+        <div class="card-row">
+            <div class="card">
+                <h2><span class="badge">使用建议</span> 怎么用更顺手</h2>
+                <p>如果你希望每次访问都保持清爽，可以试试这些方式：</p>
+                <ul>
+                    <li>将 <a href="https://rayspeed-h5-leisu.com" class="accent-link" style="padding: 0.1rem 0.8rem; font-size:0.9rem;">雷速</a> 设置为浏览器主页或书签栏常用位，方便随时调用。</li>
+                    <li>在需要快速查资料、打开常用工具页时，优先从这里起步，减少在搜索框里重复输入的时间。</li>
+                    <li>搭配浏览器的“阅读模式”或专注插件使用，体验更沉浸。</li>
+                    <li>定期清理缓存，保持页面加载的原生流畅感。</li>
+                </ul>
+                <div class="pill-list">
+                    <span class="pill">轻量</span>
+                    <span class="pill">稳定入口</span>
+                    <span class="pill">少打扰</span>
+                </div>
+            </div>
+            <div class="card">
+                <h2><span class="badge">适用场景</span> 什么时候想到它</h2>
+                <p>—— 午休间隙想浏览几个常去页面，又不想被推荐信息流干扰。<br>
+                —— 工作前先打开一个干净的环境，再从 <a href="https://rayspeed-h5-leisu.com">雷速</a> 切换到不同任务页。<br>
+                —— 给家人或同事推荐一个不花哨的浏览起点，避免他们迷失在广告或复杂菜单里。<br>
+                —— 手机浏览器标签页太多时，用它作为统一的中转页，减少重复打开。</p>
+                <p class="small-note" style="margin-top:0.6rem;">说到底，它只是一个让你觉得“不费劲”的入口。</p>
+            </div>
+        </div>
+
+        <!-- 提示 + FAQ 摘要 -->
+        <div class="card-row">
+            <div class="card">
+                <h2><span class="badge">提示</span> 关于访问</h2>
+                <p>使用 <strong>雷速</strong> 时，建议保持浏览器为最新版本，以获得更好的兼容性。页面本身不收集个人信息，也没有什么隐藏的跟踪逻辑，你可以像打开一个本地文件一样放松。如果遇到加载缓慢，通常是网络环境或 ISP 解析的问题，可以尝试刷新或更换 DNS。</p>
+                <p>另外，所有链接都指向明确的目的地，没有中间跳转页或短链重定向，这也是它让人安心的一个原因。</p>
+            </div>
+            <div class="card">
+                <h2><span class="badge">FAQ</span> 几个常见小问题</h2>
+                <ul>
+                    <li><strong>需要注册或登录吗？</strong> —— 不需要，这里是纯浏览性质的页面，没有账户体系。</li>
+                    <li><strong>移动端和电脑端体验有区别吗？</strong> —— 响应式适配，在手机和电脑上都能正常使用，但手机屏幕小，卡片会纵向堆叠，更简洁。</li>
+                    <li><strong>页面会变化吗？</strong> —— 结构保持稳定，偶尔微调样式或补充说明，但不会影响你已经熟悉的路径。</li>
+                    <li><strong>可以分享给朋友吗？</strong> —— 当然可以，直接转发链接即可，<a href="https://rayspeed-h5-leisu.com">雷速</a> 本身就是一个开放且中性的入口。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 可信但克制的说明 -->
+    <hr>
+    <div class="faq-line">
+        <span>📌 可信入口 · 说明</span>
+        <span>本页面仅提供指向「雷速」的介绍与访问引导，不诱导点击、不夸大功能、不收集隐私数据。所有描述均基于页面实际表现，你可以随时根据自己的体验判断是否适合长期使用。</span>
+    </div>
+
+    <div class="footnote">
+        <span>© 介绍页 · 日常版本 · 内容基于实际使用感受</span>
+        <span><a href="https://rayspeed-h5-leisu.com">雷速</a> · 稳定入口</span>
+    </div>
+
+    <!-- 隐藏种子标记，仅用于变化控制，不显示 -->
+    <div style="display:none;">d3c88f2f984d04cc</div>
+</div>
+</body>
+</html>
