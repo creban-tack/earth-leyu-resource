@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyu · 一种安静的入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fdefe3 0%, #fae3d9 65%, #f7d9ce 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+            color: #3b2e2a;
+        }
+
+        .card {
+            max-width: 840px;
+            width: 100%;
+            background: rgba(255, 255, 245, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px rgba(140, 90, 70, 0.12), 0 8px 16px rgba(100, 60, 40, 0.06);
+            padding: 3rem 2.5rem 3.2rem;
+            transition: box-shadow 0.2s ease;
+            border: 1px solid rgba(230, 200, 180, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .card {
+                padding: 2rem 1.5rem 2.2rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+        }
+
+        .opening {
+            font-size: 1.75rem;
+            font-weight: 450;
+            letter-spacing: 0.02em;
+            color: #633f32;
+            margin-bottom: 0.8rem;
+            border-left: 6px solid #dbb5a0;
+            padding-left: 1.2rem;
+            line-height: 1.3;
+        }
+
+        .opening small {
+            font-size: 1rem;
+            font-weight: 340;
+            color: #886a5b;
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        .context {
+            margin: 1.8rem 0 1.2rem;
+            font-size: 1.05rem;
+            color: #4a3b35;
+            background: rgba(235, 215, 200, 0.2);
+            padding: 1.6rem 1.8rem;
+            border-radius: 28px 12px 28px 12px;
+            border: 1px solid #e9d6cb;
+        }
+
+        .context p {
+            margin-bottom: 1.2rem;
+        }
+
+        .context p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.5rem;
+            margin: 2rem 0 2.2rem;
+            list-style: none;
+        }
+
+        .feature-grid li {
+            flex: 1 1 200px;
+            background: #f9f2ec;
+            padding: 1rem 1.4rem;
+            border-radius: 40px 12px 40px 12px;
+            border-left: 4px solid #dbb5a0;
+            font-size: 0.98rem;
+            color: #4d3b33;
+            box-shadow: 0 2px 6px rgba(100, 60, 40, 0.04);
+            transition: background 0.2s;
+        }
+
+        .feature-grid li:hover {
+            background: #f3e6dd;
+        }
+
+        .feature-grid li strong {
+            display: block;
+            font-weight: 550;
+            color: #5d4033;
+            margin-bottom: 0.25rem;
+        }
+
+        .link-sentence {
+            background: #f5ebe4;
+            padding: 1.3rem 1.8rem;
+            border-radius: 60px 16px 60px 16px;
+            margin: 1.8rem 0 1rem;
+            font-size: 1.05rem;
+            border: 1px solid #e3cec0;
+            color: #3e2f2a;
+            text-align: center;
+        }
+
+        .link-sentence a {
+            color: #7b4e3a;
+            text-decoration: none;
+            font-weight: 520;
+            background: transparent;
+            padding: 0.1rem 0.3rem;
+            border-bottom: 2px solid #dbb5a0;
+            transition: background 0.15s, border-color 0.15s;
+            border-radius: 8px 2px 8px 2px;
+        }
+
+        .link-sentence a:hover {
+            background: #e9d4c8;
+            border-bottom-color: #9e725e;
+        }
+
+        .closing {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #6f5548;
+            padding-top: 1.2rem;
+            border-top: 1px dashed #dcc9bf;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .closing span {
+            opacity: 0.8;
+        }
+
+        .closing small {
+            display: block;
+            font-size: 0.85rem;
+            color: #8b7063;
+        }
+
+        .round-badge {
+            display: inline-block;
+            background: #e7d4c9;
+            color: #4f382e;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 0.01em;
+            margin-right: 0.4rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5d3c9;
+            margin: 1.8rem 0 1rem;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="opening">
+            入口不总是喧嚣的。
+            <small>有些地方，值得慢慢走进去。</small>
+        </div>
+
+        <div class="context">
+            <p>许多页面急于用弹窗和横幅抓住视线，但真正让人想停留的，往往只是<strong>一个清晰的入口</strong>。这里没有复杂的导航迷宫，也没有过剩的视觉噪音——只有一个温和的起点，让感兴趣的人自然靠近。</p>
+            <p>这个站点所承载的，正是这样一种气质：稳定、低调，却足够结实。无论你是在寻找信息、浏览内容，还是只是想找一个安静的数字角落，它都以一致的节奏回应你。</p>
+        </div>
+
+        <ul class="feature-grid">
+            <li><strong>· 干净的路径</strong> 页面结构经过梳理，从首页到内容页，每一步都自然过渡，减少不必要的跳转困惑。</li>
+            <li><strong>· 克制的视觉</strong> 暖色基底、低对比、适度的留白，让眼睛在浏览时感到放松，而非被刺激。</li>
+            <li><strong>· 稳定的承载</strong> 基于可靠的基础构建，访问流畅，不依赖花哨的动效或第三方依赖，内容本身即是重心。</li>
+            <li><strong>· 日常的质感</strong> 不追求惊艳的第一印象，而是像一本常翻的书、一张用了许久的木桌——熟悉且可信。</li>
+        </ul>
+
+        <div class="link-sentence">
+            <span class="round-badge">✦ 直达</span>
+            如果你愿意，可以从这里出发 —— <a href="https://earth-leyu.com.cn">leyu</a>。页面很轻，内容就在那里。
+        </div>
+
+        <hr>
+
+        <div class="closing">
+            <div>
+                <span>🌱 适合慢慢浏览</span>
+                <small>没有弹窗，没有自动播放</small>
+            </div>
+            <div>
+                <span>📂 入口即首页</span>
+                <small>结构清晰，指向明确</small>
+            </div>
+            <div>
+                <span>🧭 一次点击，一个方向</span>
+                <small>不多不少，刚好够用</small>
+            </div>
+        </div>
+
+        <!-- 辅助说明：以下为隐藏种子字段，不显示在页面上 -->
+        <!-- 创作种子: 0fdda58d9d4cfad8 -->
+    </div>
+</body>
+</html>
